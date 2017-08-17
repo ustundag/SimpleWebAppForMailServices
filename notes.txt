@@ -2,6 +2,7 @@
 $ npm init
 $ npm install express --save
 
-2-Run "$ node app.js" command to start web server of express.js framework
+2-Run "$ node app.js" command to start web server of express.js framework and see example rest responses on 
+http://localhost:3000 and http://localhost:3000/hello
 
 3-
