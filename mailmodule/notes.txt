@@ -1,0 +1,7 @@
+1-Run these commands under 'mailmodule' folder;
+$ npm init
+$ npm install express --save
+
+2-Run "$ node app.js" command to start web server of express.js framework
+
+3-

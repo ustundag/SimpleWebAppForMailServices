@@ -1,0 +1,14 @@
+{
+  "name": "mailmodule",
+  "version": "1.0.0",
+  "description": "general module for mail service",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "anil_muhammad",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.15.4"
+  }
+}
