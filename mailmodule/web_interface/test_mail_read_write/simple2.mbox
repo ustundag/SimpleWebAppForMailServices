@@ -1,0 +1,22 @@
+From MAILER-DAEMON Fri Jul  8 12:08:34 2011
+From: Author <author@example.com>
+To: Recipient <recipient@example.com>
+Subject: Sample message 1
+
+111111111
+
+From MAILER-DAEMON222 Fri Jul  8 12:08:34 2011
+From: Author <author@example.com>
+To: Recipient <recipient@example.com>
+Subject: Sample message 2
+
+2222222222
+
+From username Sat Aug 19 2017 15:04:32
+From: <mail_address_from>
+To: muhammed@gmail.com
+Cc: velasco@fraunhofer.com
+Bcc: bcc@gmail.com
+Subject: compose test mail
+
+Hi there! Let's create a mail to append .mbox file.

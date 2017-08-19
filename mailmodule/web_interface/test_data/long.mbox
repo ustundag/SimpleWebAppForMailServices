@@ -1,0 +1,415 @@
+From nobody Tue May 11 01:23:21 2004
+Received: (qmail 12819 invoked from network); 10 May 2004 23:23:18 -0000
+Received: from unknown (HELO kimianet.com) (217.218.203.109)
+	by quizzebox.quintessenz.at with SMTP; 10 May 2004 23:23:18 -0000
+Received: from 217.219.43.10 ([213.165.127.222])
+	by kimianet.com (kimianet.com [213.165.127.132])
+	(MDaemon.PRO.v7.0.1.R) with ESMTP id md50000073943.msg
+	for <sympython@quizzebox.quintessenz.at>;
+	Tue, 11 May 2004 03:52:20 +0430
+From: Davoud Seyedin Boroujeni <wisa@kimianet.com>
+To: sympython@quizzebox.quintessenz.at
+Date: Tue, 11 May 2004 03:55:17 +0000
+User-Agent: KMail/1.5
+MIME-Version: 1.0
+Content-Type: text/plain;
+  charset="us-ascii"
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+Message-Id: <200405110355.17198.wisa@kimianet.com>
+X-Spam-Processed: kimianet.com, Tue, 11 May 2004 03:52:20 +0430
+	(not processed: message from valid local sender)
+X-MDRemoteIP: 213.165.127.222
+X-Return-Path: wisa@kimianet.com
+X-MDaemon-Deliver-To: sympython@quizzebox.quintessenz.at
+Subject: [Sympython] May be this is the first message :)
+X-BeenThere: sympython@quizzebox.quintessenz.at
+X-Mailman-Version: 2.1.3
+Precedence: list
+List-Id: <sympython.quizzebox.quintessenz.at>
+List-Unsubscribe: <http://quintessenz.org/cgi-bin/mailman/listinfo/sympython>, 
+	<mailto:sympython-request@quizzebox.quintessenz.at?subject=unsubscribe>
+List-Archive: <http://quizzebox.quintessenz.at/pipermail/sympython>
+List-Post: <mailto:sympython@quizzebox.quintessenz.at>
+List-Help: <mailto:sympython-request@quizzebox.quintessenz.at?subject=help>
+List-Subscribe: <http://quintessenz.org/cgi-bin/mailman/listinfo/sympython>,
+	<mailto:sympython-request@quizzebox.quintessenz.at?subject=subscribe>
+X-List-Received-Date: Mon, 10 May 2004 23:23:18 -0000
+
+Hi,
+
+I`m glad to post the first message :)
+well, at first please let me know what is the condition of port
+
+
+From nobody Tue May 11 11:57:06 2004
+Received: (qmail 10501 invoked from network); 10 May 2004 22:54:16 -0000
+Received: from unknown (HELO elisa.soniq.net) (80.109.2.140)
+	by quizzebox.quintessenz.at with SMTP; 10 May 2004 22:54:16 -0000
+Received: from felix by elisa.soniq.net with local (Exim 3.36 #1 (Debian))
+	id 1BNJf5-0007Wi-00 for <sympython@quizzebox.quintessenz.at>;
+	Tue, 11 May 2004 00:54:15 +0200
+Date: Tue, 11 May 2004 00:54:15 +0200
+To: Symbian Python Mailing list <sympython@quizzebox.quintessenz.at>
+Message-ID: <20040510225415.GF6890@mini>
+Mime-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+X-Message-Flag: Outlook: where do you want to have your new virus today ?
+X-accepted-languages: de, en
+User-Agent: Mutt/1.5.6i
+From: Felix Erkinger <erkinger@gmx.net>
+X-Mailman-Approved-At: Tue, 11 May 2004 11:57:04 +0200
+Subject: [Sympython] Jython and personal java ?
+X-BeenThere: sympython@quizzebox.quintessenz.at
+X-Mailman-Version: 2.1.3
+Precedence: list
+List-Id: <sympython.quizzebox.quintessenz.at>
+List-Unsubscribe: <http://quintessenz.org/cgi-bin/mailman/listinfo/sympython>, 
+	<mailto:sympython-request@quizzebox.quintessenz.at?subject=unsubscribe>
+List-Archive: <http://quizzebox.quintessenz.at/pipermail/sympython>
+List-Post: <mailto:sympython@quizzebox.quintessenz.at>
+List-Help: <mailto:sympython-request@quizzebox.quintessenz.at?subject=help>
+List-Subscribe: <http://quintessenz.org/cgi-bin/mailman/listinfo/sympython>,
+	<mailto:sympython-request@quizzebox.quintessenz.at?subject=subscribe>
+X-List-Received-Date: Mon, 10 May 2004 22:54:16 -0000
+
+As stated on jython.org, kaffe and other Java-VM's only implementing the
+PersonalJava subset are (at least) lacking java.math.BigInteger and
+probably others beside of small incompatibilities (kaffe). They also 
+state that it should be possible to get Jython working on this type of
+VM if someone invests time on this issue.
+
+Could this be a way to port python to a symbian device ?
+
+Regards,
+  Felix
+
+From nobody Tue May 11 17:07:00 2004
+Received: (qmail 17715 invoked from network); 11 May 2004 10:01:22 -0000
+Received: from unknown (HELO mx-00.sil.at) (62.116.68.196)
+	by quizzebox.quintessenz.at with SMTP; 11 May 2004 10:01:22 -0000
+Received: (qmail-ldap/ctrl 82325 invoked from network);
+	11 May 2004 10:01:20 -0000
+Received: from unknown (HELO waste.sil.at) ([213.235.199.115])
+	(envelope-sender <paul@xenian.net>)
+	by mx-00.sil.at (qmail-ldap-1.03) with SMTP
+	for <sympython@quizzebox.quintessenz.at>; 11 May 2004 10:01:20 -0000
+Received: from localhost ([213.235.202.171])
+	by waste.sil.at (8.12.10/8.12.6) with ESMTP id i4BA1GqH028464;
+	Tue, 11 May 2004 12:01:17 +0200
+Date: Tue, 11 May 2004 12:01:21 +0200
+From: "Paul Boehm" <paul@xenian.net>
+To: "Davoud Seyedin Boroujeni" <wisa@kimianet.com>,
+	sympython@quizzebox.quintessenz.at
+Subject: Re: [Sympython] May be this is the first message :)
+References: <200405110355.17198.wisa@kimianet.com>
+Content-Type: text/plain; format=flowed; delsp=yes; charset=utf-8
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Message-ID: <opr7tx4jifnz68mb@localhost>
+In-Reply-To: <200405110355.17198.wisa@kimianet.com>
+User-Agent: Opera M2/7.50 (Linux, build 663)
+X-Mailman-Approved-At: Tue, 11 May 2004 17:06:58 +0200
+Cc: 
+X-BeenThere: sympython@quizzebox.quintessenz.at
+X-Mailman-Version: 2.1.3
+Precedence: list
+List-Id: <sympython.quizzebox.quintessenz.at>
+List-Unsubscribe: <http://quintessenz.org/cgi-bin/mailman/listinfo/sympython>, 
+	<mailto:sympython-request@quizzebox.quintessenz.at?subject=unsubscribe>
+List-Archive: <http://quizzebox.quintessenz.at/pipermail/sympython>
+List-Post: <mailto:sympython@quizzebox.quintessenz.at>
+List-Help: <mailto:sympython-request@quizzebox.quintessenz.at?subject=help>
+List-Subscribe: <http://quintessenz.org/cgi-bin/mailman/listinfo/sympython>,
+	<mailto:sympython-request@quizzebox.quintessenz.at?subject=subscribe>
+X-List-Received-Date: Tue, 11 May 2004 10:01:22 -0000
+
+On Tue, 11 May 2004 03:55:17 +0000, Davoud Seyedin Boroujeni  
+<wisa@kimianet.com> wrote:
+
+> Hi,
+>
+> I`m glad to post the first message :)
+> well, at first please let me know what is the condition of port
+
+okay, my port is just a modified python 2.3.3 source tree, with some  
+modifications to make it compile under codewarrior - as i only have an  
+evaluation copy of codewarrior, i'm a little reluctant to release it, but  
+i could send a diff of the source changes, and we could try to make it  
+work with the normal SDK build utils.
+
+i certainly haven't spent much work on it yet, but it proves that the  
+basic porting can be done relatively quickly
+
+regards,
+   paul
+
+From nobody Fri May 14 01:28:07 2004
+Received: (qmail 20053 invoked from network); 13 May 2004 23:28:06 -0000
+Received: from unknown (HELO mxsf17.cluster1.charter.net) (209.225.28.217)
+	by quizzebox.quintessenz.at with SMTP; 13 May 2004 23:28:06 -0000
+Received: from charter.net (commons10k1.mo24.107.43.251.charter-stl.com
+	[24.107.43.251])
+	by mxsf17.cluster1.charter.net (8.12.11/8.12.11) with ESMTP id
+	i4DNRmc8059370 for <sympython@quizzebox.quintessenz.at>;
+	Thu, 13 May 2004 19:27:48 -0400 (EDT)
+Message-ID: <40A3F96B.3020104@charter.net>
+Date: Thu, 13 May 2004 18:40:43 -0400
+From: "Derek W." <pydron@charter.net>
+User-Agent: Mozilla Thunderbird 0.5 (X11/20040306)
+X-Accept-Language: en-us, en
+MIME-Version: 1.0
+To: sympython@quizzebox.quintessenz.at
+Content-Type: text/plain; charset=ISO-8859-1; format=flowed
+Content-Transfer-Encoding: 7bit
+Subject: [Sympython] Requesting binary... 
+X-BeenThere: sympython@quizzebox.quintessenz.at
+X-Mailman-Version: 2.1.3
+Precedence: list
+List-Id: <sympython.quizzebox.quintessenz.at>
+List-Unsubscribe: <http://quintessenz.org/cgi-bin/mailman/listinfo/sympython>, 
+	<mailto:sympython-request@quizzebox.quintessenz.at?subject=unsubscribe>
+List-Archive: <http://quizzebox.quintessenz.at/pipermail/sympython>
+List-Post: <mailto:sympython@quizzebox.quintessenz.at>
+List-Help: <mailto:sympython-request@quizzebox.quintessenz.at?subject=help>
+List-Subscribe: <http://quintessenz.org/cgi-bin/mailman/listinfo/sympython>,
+	<mailto:sympython-request@quizzebox.quintessenz.at?subject=subscribe>
+X-List-Received-Date: Thu, 13 May 2004 23:28:06 -0000
+
+I know you aren't too keen on releasing the binary at this point, I 
+would really be interested in testing it.  I hope this catches on. 
+
+- Derek
+
+From nobody Tue Jun  8 00:33:20 2004
+Received: (qmail 21471 invoked from network); 7 Jun 2004 22:33:18 -0000
+Received: from unknown (HELO mra03.ex.eclipse.net.uk) (212.104.129.110)
+	by quizzebox.quintessenz.at with SMTP; 7 Jun 2004 22:33:18 -0000
+Received: from localhost (localhost.localdomain [127.0.0.1])
+	by mra03.ex.eclipse.net.uk (Postfix) with ESMTP id A02CC2E2ADF
+	for <sympython@quizzebox.quintessenz.at>;
+	Mon,  7 Jun 2004 23:28:49 +0100 (BST)
+Received: from mra03.ex.eclipse.net.uk ([127.0.0.1])
+	by localhost (mra03.ex.eclipse.net.uk [127.0.0.1]) (amavisd-new,
+	port 10024)
+	with LMTP id 24270-01-54 for <sympython@quizzebox.quintessenz.at>;
+	Mon,  7 Jun 2004 23:28:49 +0100 (BST)
+Received: from DILBERT2 (unknown [81.168.1.18])
+	by mra03.ex.eclipse.net.uk (Postfix) with ESMTP id 691662E2A73
+	for <sympython@quizzebox.quintessenz.at>;
+	Mon,  7 Jun 2004 23:28:48 +0100 (BST)
+From: "Tim Ocock" <t.ocock@iee.org>
+To: <sympython@quizzebox.quintessenz.at>
+Date: Mon, 7 Jun 2004 23:33:13 +0100
+Message-ID: <000001c44cdf$6bca1400$0200000a@DILBERT2>
+MIME-Version: 1.0
+Content-Type: text/plain;
+	charset="us-ascii"
+Content-Transfer-Encoding: 7bit
+X-Priority: 3 (Normal)
+X-MSMail-Priority: Normal
+X-Mailer: Microsoft Outlook, Build 10.0.2627
+Importance: Normal
+X-MimeOLE: Produced By Microsoft MimeOLE V6.00.2800.1409
+X-Virus-Scanned: by Eclipse VIRUSshield at eclipse.net.uk
+Subject: [Sympython] First preview of Python for UIQ now available
+X-BeenThere: sympython@quizzebox.quintessenz.at
+X-Mailman-Version: 2.1.3
+Precedence: list
+List-Id: <sympython.quizzebox.quintessenz.at>
+List-Unsubscribe: <http://quintessenz.org/cgi-bin/mailman/listinfo/sympython>, 
+	<mailto:sympython-request@quizzebox.quintessenz.at?subject=unsubscribe>
+List-Archive: <http://quizzebox.quintessenz.at/pipermail/sympython>
+List-Post: <mailto:sympython@quizzebox.quintessenz.at>
+List-Help: <mailto:sympython-request@quizzebox.quintessenz.at?subject=help>
+List-Subscribe: <http://quintessenz.org/cgi-bin/mailman/listinfo/sympython>,
+	<mailto:sympython-request@quizzebox.quintessenz.at?subject=subscribe>
+X-List-Received-Date: Mon, 07 Jun 2004 22:33:18 -0000
+
+Dear list,
+
+Inspired by Paul's demonstration that it would be possible to get Python
+up and running on Symbian OS v7 and UIQ, I had a go myself with with a
+fair bit of success. As the maintainer of the Amiga port of Python, I
+already know a bit about Python, about constrained devices (and also
+about being lonely in my choice of computers!).
+
+Thanks to Paul for providing the inspiration and for allowing me to use
+this list to let you all know.
+
+This message is to let you know that you can now see that it works and
+get hold of the source yourself at my website:
+
+http://www.monkeyhouse.eclipse.co.uk/mobile/python.htm
+
+This message is also a request for others to join in with this project.
+You are all welcome, as long as you are seriously going to be able to
+contribute, and you already have the necessary tools (CodeWarrior for
+Symbian OS version 2.0+). 
+
+Currently the source archive weighs in at about 13MB as it contains the
+full generic Python 2.3.3 source plus the Symbian changes. Do not bother
+to download it unless you have CodeWarrior for Symbian OS, honestly,
+you'll be wasting your time. If you can recommend good Windows tools for
+making patches, then please let me know.
+
+There are no binaries available yet, although you can build them from
+the source if you have the right tools. We are talking console mode only
+and that means keyboards, so there is little that can be done on real
+devices right now.
+
+Feel free to contact me about this software.
+
+That's all,
+Tim
+
+
+From nobody Tue Jun  8 11:52:46 2004
+Received: (qmail 30893 invoked from network); 8 Jun 2004 09:52:43 -0000
+Received: from unknown (HELO marx.jamkit.com) (212.104.156.132)
+	by quizzebox.quintessenz.at with SMTP; 8 Jun 2004 09:52:43 -0000
+Received: from jamkit.com (dhcp-246-166.nomad.chalmers.se [129.16.246.166])
+	(authenticated bits=0)
+	by marx.jamkit.com (8.12.8/8.12.8) with ESMTP id i589tap9013389;
+	Tue, 8 Jun 2004 10:55:36 +0100
+Message-ID: <40C58C43.2080700@jamkit.com>
+Date: Tue, 08 Jun 2004 10:52:03 +0100
+From: seb bacon <seb@jamkit.com>
+User-Agent: Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.6) Gecko/20040510
+X-Accept-Language: en, en-us
+MIME-Version: 1.0
+To: Tim Ocock <t.ocock@iee.org>
+Subject: Re: [Sympython] First preview of Python for UIQ now available
+References: <000001c44cdf$6bca1400$0200000a@DILBERT2>
+In-Reply-To: <000001c44cdf$6bca1400$0200000a@DILBERT2>
+Content-Type: text/plain; charset=us-ascii; format=flowed
+Content-Transfer-Encoding: 7bit
+X-MailScanner-Information: Please contact the ISP for more information
+X-MailScanner: Found to be clean
+Cc: sympython@quizzebox.quintessenz.at, info@plonesolutions.com
+X-BeenThere: sympython@quizzebox.quintessenz.at
+X-Mailman-Version: 2.1.3
+Precedence: list
+List-Id: <sympython.quizzebox.quintessenz.at>
+List-Unsubscribe: <http://quintessenz.org/cgi-bin/mailman/listinfo/sympython>, 
+	<mailto:sympython-request@quizzebox.quintessenz.at?subject=unsubscribe>
+List-Archive: <http://quizzebox.quintessenz.at/pipermail/sympython>
+List-Post: <mailto:sympython@quizzebox.quintessenz.at>
+List-Help: <mailto:sympython-request@quizzebox.quintessenz.at?subject=help>
+List-Subscribe: <http://quintessenz.org/cgi-bin/mailman/listinfo/sympython>,
+	<mailto:sympython-request@quizzebox.quintessenz.at?subject=subscribe>
+X-List-Received-Date: Tue, 08 Jun 2004 09:52:44 -0000
+
+Tim Ocock wrote:
+> Dear list,
+> 
+> Inspired by Paul's demonstration that it would be possible to get Python
+> up and running on Symbian OS v7 and UIQ, I had a go myself with with a
+> fair bit of success. As the maintainer of the Amiga port of Python, I
+> already know a bit about Python, about constrained devices (and also
+> about being lonely in my choice of computers!).
+> 
+> Thanks to Paul for providing the inspiration and for allowing me to use
+> this list to let you all know.
+> 
+> This message is to let you know that you can now see that it works and
+> get hold of the source yourself at my website:
+> 
+> http://www.monkeyhouse.eclipse.co.uk/mobile/python.htm
+> 
+> This message is also a request for others to join in with this project.
+> You are all welcome, as long as you are seriously going to be able to
+> contribute, and you already have the necessary tools (CodeWarrior for
+> Symbian OS version 2.0+). 
+> 
+> Currently the source archive weighs in at about 13MB as it contains the
+> full generic Python 2.3.3 source plus the Symbian changes. Do not bother
+> to download it unless you have CodeWarrior for Symbian OS, honestly,
+> you'll be wasting your time. If you can recommend good Windows tools for
+> making patches, then please let me know.
+> 
+> There are no binaries available yet, although you can build them from
+> the source if you have the right tools. We are talking console mode only
+> and that means keyboards, so there is little that can be done on real
+> devices right now.
+> 
+> Feel free to contact me about this software.
+> 
+> That's all,
+> Tim
+> 
+> _______________________________________________
+> Sympython mailing list
+> Sympython@quizzebox.quintessenz.at
+> http://quintessenz.org/cgi-bin/mailman/listinfo/sympython
+
+
+From nobody Sun Jul 11 22:32:51 2004
+Received: (qmail 22914 invoked from network); 11 Jul 2004 20:32:50 -0000
+Received: from unknown (HELO mproxy.gmail.com) (64.233.170.199)
+	by quizzebox.quintessenz.at with SMTP; 11 Jul 2004 20:32:50 -0000
+Received: by mproxy.gmail.com with SMTP id d78so150171rnf
+	for <sympython@quizzebox.quintessenz.at>;
+	Sun, 11 Jul 2004 13:32:27 -0700 (PDT)
+Received: by 10.38.9.62 with SMTP id 62mr76955rni;
+	Sun, 11 Jul 2004 13:32:27 -0700 (PDT)
+Message-ID: <b5eb475d04071113323c3d4985@mail.gmail.com>
+Date: Sun, 11 Jul 2004 22:32:27 +0200
+From: Gopi Flaherty <gopiballava@gmail.com>
+To: sympython@quizzebox.quintessenz.at
+Mime-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Subject: [Sympython] Re: First preview of Python for UIQ now available
+X-BeenThere: sympython@quizzebox.quintessenz.at
+X-Mailman-Version: 2.1.3
+Precedence: list
+List-Id: <sympython.quizzebox.quintessenz.at>
+List-Unsubscribe: <http://quintessenz.org/cgi-bin/mailman/listinfo/sympython>, 
+	<mailto:sympython-request@quizzebox.quintessenz.at?subject=unsubscribe>
+List-Archive: <http://quizzebox.quintessenz.at/pipermail/sympython>
+List-Post: <mailto:sympython@quizzebox.quintessenz.at>
+List-Help: <mailto:sympython-request@quizzebox.quintessenz.at?subject=help>
+List-Subscribe: <http://quintessenz.org/cgi-bin/mailman/listinfo/sympython>,
+	<mailto:sympython-request@quizzebox.quintessenz.at?subject=subscribe>
+X-List-Received-Date: Sun, 11 Jul 2004 20:32:51 -0000
+
+Great work. I've been hacking at your code for a bit; I do my
+development work on Linux using command line tools, so it took a bit
+of poking around to make it build.
+
+You're indeed correct about it working on the device with a keyboard.
+I have an IR keyboard, and your Python port works properly using the
+keyboard - well, almost. Arrow keys and delete don't work.
+Interestingly, every single thread creates a brand new STDOUT window
+if it does a printf.
+
+I have threading working reasonably right now - it works in my tests,
+though the official Python tests crash it. I haven't poked deeply
+enough to figure out why - I'm thinking that remote debugging would
+help. I am working on sockets right now; they sort of work, and in a
+day or two I should probably have a moderate incoming and outgoing
+socket implementation working.
+
+My stuff is up at:
+http://141.3.25.168:8080/symbian/
+
+In terms of how to proceed, I think that having the python executable
+run a python program that creates threads with virtualized python
+interpreters using code/codeop would be a good way to proceed. A
+proper Symbian app would provide the UI for either interactive
+editing, or for running other scripts.
+
+For my work-related work, I'm thinking of using GapiDraw, since I
+don't like the UIQ UI, and would like to work on something more
+dynamic. I'd likely be writing pixel-identical bindings for FLTK or
+wxWindows for the basic GapiDraw functionality that I'll be using.
+
+A WAP request library, and phone line control code are my next python projects.
+
+Thanks for making this work.
+
+gopi.
+
+
