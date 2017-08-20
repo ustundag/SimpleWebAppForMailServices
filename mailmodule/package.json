@@ -9,10 +9,10 @@
   "author": "anil_muhammad",
   "license": "ISC",
   "dependencies": {
+    "cors": "^2.8.4",
     "express": "^4.15.4",
     "mailparser": "^0.5.3",
-    "node-mbox": "^0.2.1",
-    "yargs": "^3.30.0"
+    "node-mbox": "^0.2.1"
   },
   "devDependencies": {}
 }

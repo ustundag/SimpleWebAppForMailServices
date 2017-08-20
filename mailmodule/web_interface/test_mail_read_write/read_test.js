@@ -3,11 +3,8 @@
 var MailParser  = require('mailparser').MailParser;
 var fs					= require('fs');
 var Mbox        = require('node-mbox');
-var argv				= require('yargs')
-									.alias('i', 'input')
-									.alias('o', 'output')
-									.demand(['i'])
-									.argv;
+
+var FILE_INBOX = "simple2.mbox";
 
 function main() {
 	var messages = [];
@@ -20,10 +17,7 @@ function main() {
 	  	messages.push(mail);
 	  	if (messages.length == messageCount) {
 	  		console.log('Finished parsing messages');
-	  		if (argv.o)
-	  			saveAsJSON(messages);
-	  		else
-	  			console.log(messages);
+  			console.log(messages);
 	  	}
 	  });
 	  mailparser.write(msg);
@@ -35,18 +29,15 @@ function main() {
 		messageCount = parsedCount;
 	});
 
-	if (fs.existsSync(argv.input)) {
-		var handle = fs.createReadStream(argv.input);
+	if (fs.existsSync(FILE_INBOX)) {
+		console.log('file exist!');
+		var handle = fs.createReadStream(FILE_INBOX);
 		//handle.setEncoding('ascii');
 		handle.pipe(mbox);
 	}
-}
-
-function saveAsJSON(obj) {
-	fs.writeFile(argv.output, JSON.stringify(obj), function(err) {
-		if(err)
-			return console.log(err);
-	});
-}
+	else {
+		console.log('file not found!');
+	}
+};
 
 main();

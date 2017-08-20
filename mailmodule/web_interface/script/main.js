@@ -4,7 +4,7 @@
  * FloatLabels
  * Version: 1.0
  * URL: http://clubdesign.github.io/floatlabels.js/
- * Description: 
+ * Description:
  * Author: Marcus Pohorely ( http://www.clubdesign.at )
  * Copyright: Copyright 2013 / 2014 http://www.clubdesign.at
  */
@@ -20,14 +20,30 @@ $(document).ready(function(){
 */
 
 $(function() {
-    console.log( "ready!" );
-	//const User = require('User');
+  console.log( "ready!" );
+	REST_request_inbox();
 });
+
+var REST_request_inbox = function(){
+  $.ajax({
+    url: "http://127.0.0.1:3000/inbox",
+    type: 'get',
+    dataType: 'text',
+    success: function (inbox) {
+      console.log(inbox);
+    },
+    error: function (error) {
+      console.log("[REST_request_inbox] error...");
+      console.log(error);
+    }
+  });
+
+};
 
 var composeMail = function(){
 	/*let john = new User('John', 'Doe', 'john.doe@gmail.com');
 	console.log(john);*/
-	
+
 	var mail = '';
 	var to = $('#to').val();
 	// cc and bcc should be checked with respect to ',' comma character
@@ -35,7 +51,7 @@ var composeMail = function(){
 	var bcc = $('#bcc').val();
 	var subject = $('#subject').val();
 	var message = $('#message').val();
-	
+
 	//date must consist exactly 24 character
 	mail = 	'From ' + 'username ' + (new Date()) + '\n' +
 			'From: '+ '<mail_address_from>' + '\n' +
@@ -44,18 +60,7 @@ var composeMail = function(){
 			'Bcc: ' + bcc + '\n' +
 			'Subject: ' + subject + '\n' +
 			'\n' + message;
-	
+
 	console.log(mail);
-	
-	
+
 };
-
-
-
-
-
-
-
-
-
-
