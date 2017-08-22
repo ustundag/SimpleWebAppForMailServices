@@ -46,8 +46,19 @@ app.post('/compose', function (req, res) {
   console.log('Mail has been sent!');
 });
 app.get('/search', function (req, res) {
-  //searchInArchive(FILE_INBOX, req.query.keywords, res);
-  res.send(req.query.keywords);
+  switch (req.query.file) {
+    case "search_inbox":
+      searchInArchive(FILE_INBOX, req.query.keywords, res);
+      break;
+    case "search_sent":
+      searchInArchive(FILE_SENT, req.query.keywords, res);
+      break;
+    case "search_deleted":
+      searchInArchive(FILE_DELETED, req.query.keywords, res);
+      break;
+    default:
+      console.log("Sorry, Invalid search request!");
+  }
 });
 app.listen(3000, function () {
   console.log('Mail Server started listening on port 3000!')
@@ -57,20 +68,24 @@ var searchInArchive = function(file, keywords, response){
   var messages = [];
   var mail_str = '';
 	var mbox = new Mbox();
-
+  var missed = 0;
 	mbox.on('message', function(msg) {
 	  // parse message using MailParser
 	  var mailparser = new MailParser({ streamAttachments : true });
 	  mailparser.on('end', function(mail) {
       mail_str = JSON.stringify(mail);
-      if(mail_str.indexOf(keywords) > -1) {
-	  	    messages.push(mail);
+      mail_str = mail_str.toLowerCase();
+      if(mail_str.indexOf(keywords.toLowerCase()) >= 0) {
+  	     messages.push(mail);
       }
-      if (messages.length == messageCount) {
+      else{
+        missed++;
+      }
+      if (messages.length + missed == messageCount) {
 	  		//console.log('Finished parsing inbox');
         //console.log(messages);
-        response.send(JSON.stringify(messages));
-        console.log(file + ' has been sent!');
+        response.send(JSON.stringify(messages)+'');
+        console.log('Filtered mail list has been sent for ' + file);
 	  	}
 	  });
 	  mailparser.write(msg);

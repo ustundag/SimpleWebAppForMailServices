@@ -1,5 +1,5 @@
-From username Mon Aug 21 2017 16:14:39 GMT+0200 (W. Europe Daylight Time)
-From: <mail_address_from>
+From Anil Ustundag Mon Aug 21 2017 23:52:5
+From: anilu@rwth-aachen.com
 To: muhammed@gmail.com
 Cc: velasco@fraunhofer.com
 Bcc: bcc@gmail.com
@@ -7,8 +7,17 @@ Subject: compose test mail
 
 Hi there! Let's create a mail to append .mbox file.
 
-From username Mon Aug 21 2017 16:14:43 GMT+0200 (W. Europe Daylight Time)
-From: <mail_address_from>
+From Anil Ustundag Tue Aug 22 2017 00:03:4
+From: anilu@rwth-aachen.com
+To: 2muhammed@gmail.com
+Cc: 2velasco@fraunhofer.com
+Bcc: 2bcc@gmail.com
+Subject: 2compose test mail
+
+2Hi there! Let's create a mail to append .mbox file.
+
+From Anil Ustundag Tue Aug 22 2017 00:04:2
+From: anilu@rwth-aachen.com
 To: muhammed@gmail.com
 Cc: velasco@fraunhofer.com
 Bcc: bcc@gmail.com

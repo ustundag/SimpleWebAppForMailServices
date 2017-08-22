@@ -28,7 +28,7 @@ var REST_request_inbox = function(){
     url: "http://127.0.0.1:3000/inbox",
     type: 'get',
     success: function (inbox) {
-      load_mails(".tab-content #inbox ", inbox);
+      load_mails(".tab-content #inbox tbody", inbox);
     },
     error: function (error) {
       console.log("[REST_request_inbox] error...");
@@ -37,12 +37,35 @@ var REST_request_inbox = function(){
   });
 };
 
+var load_mails = function(path, mail_list){
+  $(path + ' tr').remove();
+  var mails = JSON.parse(mail_list);
+  var mail;
+  var mail_from = "";
+  var sender = "";
+  for(var i in mails) {
+    mail = mails[i];
+    mail_from = mail["from"][0];
+    sender = mail_from["name"] +" "+ mail_from["address"];
+	$(path)
+	.append($('<tr id='+i+'>')
+		.append($('<td>')
+			.append($('<input type="checkbox">')))
+		.append($('<td class="mailbox-name">')
+			.append($('<a href="">').html(sender)))
+		.append($('<td class="mailbox-subject">')
+			.html("<b>"+mail["subject"].substr(0,20)+'</b>  -  "' + mail["text"].substr(0,50)+'..."'))
+		.append($('<td class="mailbox-date">').html("Time"))
+	);
+  }
+};
+
 var REST_request_sent = function(){
   $.ajax({
     url: "http://127.0.0.1:3000/sent",
     type: 'get',
     success: function (sent) {
-      load_mails(".tab-content #sent-mail ", sent);
+      load_mails(".tab-content #sent-mail tbody", sent);
     },
     error: function (error) {
       console.log("[REST_request_sent] error...");
@@ -56,7 +79,7 @@ var REST_request_deleted = function(){
     url: "http://127.0.0.1:3000/deleted",
     type: 'get',
     success: function (deleted) {
-      load_mails(".tab-content #trash ", deleted);
+      load_mails(".tab-content #trash tbody", deleted);
     },
     error: function (error) {
       console.log("[REST_request_deleted] error...");
@@ -135,30 +158,4 @@ var composeMail = function(){
   REST_send_mail(JSON.stringify(mail_JSON));
 };
 
-var load_mails = function(path, mail_list){
-  $(path + "li").remove();
-  var mails = JSON.parse(mail_list);
-  var mail;
-  var mail_from = "";
-  var sender = "";
-  for(var i in mails) {
-    mail = mails[i];
-    mail_from = mail["from"][0];
-    sender = mail_from["name"] +" "+ mail_from["address"];
-    $(path + " ul")
-  		.append($('<li id='+i+'>')
-  			.append($('<a href="">')
-  					.append($('<span class="mail-sender">')
-  						.html(sender)
-  					)
-            .append($('<span class="mail-subject">')
-  						.html(mail["subject"])
-  					)
-            .append($('<span class="mail-message-preview">')
-  						.html(mail["text"].substr(0,50)+"...")
-  					)
-        )
-     );
-  }
 
-};
