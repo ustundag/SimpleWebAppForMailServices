@@ -42,12 +42,9 @@ textarea {
     padding:35px 20px;
     margin-bottom:20px;
 }
-h1.content-title{
-    font-size:32px;
-    font-weight:300;
+h3.content-title{
     text-align:center;
-    margin-top:0;
-    margin-bottom:20px;
+    margin-top:-15px;
     font-family: 'Open Sans', sans-serif!important;
 }
 /*Compose*/
@@ -93,4 +90,12 @@ ul.mail-list li span.mail-subject{
 ul.mail-list li span.mail-message-preview{
     display:block;
     color:#A8A8A8;
+}
+
+td>input[type="checkbox"]{
+    -moz-transform: scale(1.5);
+    -ms-transform: scale(1.5);
+    -o-transform: scale(1.5);
+    -webkit-transform: scale(1.5);
+    transform: scale(1.5);
 }
