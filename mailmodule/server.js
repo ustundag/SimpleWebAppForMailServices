@@ -44,6 +44,7 @@ app.post('/compose', function (req, res) {
 
   sendMail(mail_str);
   console.log('Mail has been sent!');
+  res.send('Mail has been sent!');
 });
 app.get('/search', function (req, res) {
   switch (req.query.file) {
@@ -60,9 +61,61 @@ app.get('/search', function (req, res) {
       console.log("Sorry, Invalid search request!");
   }
 });
+app.post('/remove', function (req, res) {
+  var file = req.body.file;
+  var indexList = req.body.index;
+  indexList.forEach(function(index) {
+      console.log(index);
+  });
+  res.send('Mails has been deleted!');
+});
 app.listen(3000, function () {
   console.log('Mail Server started listening on port 3000!')
 });
+
+var removeFromArchive = function(file, index){
+  var messages = [];
+  var mail_str = '';
+	var mbox = new Mbox();
+  var missed = 0;
+	mbox.on('message', function(msg) {
+	  // parse message using MailParser
+	  var mailparser = new MailParser({ streamAttachments : true });
+	  mailparser.on('end', function(mail) {
+      mail_str = JSON.stringify(mail);
+      mail_str = mail_str.toLowerCase();
+      if(mail_str.indexOf(keywords.toLowerCase()) >= 0) {
+  	     messages.push(mail);
+      }
+      else{
+        missed++;
+      }
+      if (messages.length + missed == messageCount) {
+	  		//console.log('Finished parsing inbox');
+        //console.log(messages);
+        response.send(JSON.stringify(messages)+'');
+        console.log('Filtered mail list has been sent for ' + file);
+	  	}
+	  });
+	  mailparser.write(msg);
+	  mailparser.end();
+	});
+
+	mbox.on('end', function(parsedCount) {
+		//console.log('Completed Parsing mbox File.');
+		messageCount = parsedCount;
+	});
+
+	if (fs.existsSync(file)) {
+		//console.log('file exist!');
+		var handle = fs.createReadStream(file);
+		//handle.setEncoding('ascii');
+		handle.pipe(mbox);
+	}
+	else {
+		console.log('file not found: ' + file);
+	}
+};
 
 var searchInArchive = function(file, keywords, response){
   var messages = [];
