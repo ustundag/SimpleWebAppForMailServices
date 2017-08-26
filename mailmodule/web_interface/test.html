@@ -16,29 +16,36 @@
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
                 </button>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <span class="btn-compose pull-left">
-                    <a type="button" class="btn btn-success navbar-btn" href="#compose" role="tab" data-toggle="tab"> <span class="glyphicon glyphicon-pencil"></span> Compose</a>
-                </span>
                 <ul class="nav navbar-nav">
                     <li>
-                      <a href="#inbox" role="tab" data-toggle="tab" onclick="REST_request_inbox();">
-                    </a>
+                      <span class="btn-compose pull-left">
+                          <a type="button" class="btn btn-success navbar-btn" href="#compose" onclick="backToTabContent();" role="tab" data-toggle="tab">
+                            <span class="glyphicon glyphicon-pencil"></span> Compose
+                          </a>
+                      </span>
+                    </li>
+                    <li>
+                      <a href="#inbox" role="tab" data-toggle="tab" onclick="REST_request_inbox();">Inbox </a>
                     </li>
                     <li><a href="#sent-mail" role="tab" data-toggle="tab" onclick="REST_request_sent();">Sent mail</a>
                     </li>
                     <li><a href="#trash" role="tab" data-toggle="tab" onclick="REST_request_deleted();">Trash</a>
                     </li>
+                    <a type="button" class="btn btn-danger navbar-btn" role="tab" data-toggle="tab" id="btn_delete" onclick="deleteSelected();" style="display:none;">
+                      <span class="glyphicon glyphicon-remove"></span> Delete
+                    </a>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#"><span class="glyphicon glyphicon-user"></span> Username</a>
+                    <li><a href="#"><span class="glyphicon glyphicon-user"></span> anilu@fraunhofer.com</a>
                     </li>
                 </ul>
             </div>
@@ -52,25 +59,100 @@
                 <div class="content-container clearfix">
                     <div class="col-md-12">
                   		<div class="row">
-							<h3 class="content-title">Inbox</h3>
-							<input type="search" placeholder="Search Mail" class="form-control mail-search" id="search_inbox"/>
+                        <h3 class="content-title">Inbox</h3><hr>
+                        <input type="search" placeholder="Search Mail" class="form-control mail-search" id="search_inbox"/>
                   			<div class="box-body no-padding">
                   			  <br>
                   			  <div class="table-responsive mailbox-messages">
                   				<table class="table table-hover table-striped">
                   				  <tbody>
-									<!--A
-                  					<tr>
-                  					  <td><input type="checkbox" id="checkbox2" name="checkbox[]"/></td>
-                  					  <td class="mailbox-name"><a href="">WM06</a></td>
-                  					  <td class="mailbox-subject"><b>WM06</b> - Trying to find a solution to this problem...</td>
-                  					  <td class="mailbox-date">5 mins ago</td>
-                  					</tr>
--->
+                            <!--A
+                            <tr id="0">
+                                <td><input type="checkbox"></td>
+                                <td onclick="displayMail(this)" class="mailbox-name"><a style="color:#0033cc;">Anil Ustundag anilu@...</a></td>
+                                <td onclick="displayMail(this)" class="mailbox-subject"><b>compose test mail...</b> - [1111111 ...]</td>
+                                <td onclick="displayMail(this)" class="mailbox-date">Time</td>
+                            </tr>
+                            <tr id="1">
+                                <td><input type="checkbox"></td>
+                                <td onclick="displayMail(this)" class="mailbox-name"><a style="color:#0033cc;">Anil Ustundag anilu@...</a></td>
+                                <td onclick="displayMail(this)" class="mailbox-subject"><b>compose test mail...</b> - [2222222 ...]</td>
+                                <td onclick="displayMail(this)" class="mailbox-date">Time</td>
+                            </tr>-->
                   				  </tbody>
-                  				</table><!-- /.table -->
-                  			  </div><!-- /.mail-box-messages -->
-                  			</div><!-- /.box-body -->
+                  				</table>
+                  			  </div>
+                  			</div>
+                  			<hr>
+                  		</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane" id="sent-mail">
+            <div class="container">
+                <div class="content-container clearfix">
+                    <div class="col-md-12">
+                      <div class="row">
+                        <h3 class="content-title">Sent</h3><hr>
+                        <input type="search" placeholder="Search Mail" class="form-control mail-search" id="search_sent"/>
+                  			<div class="box-body no-padding">
+                  			  <br>
+                  			  <div class="table-responsive mailbox-messages">
+                  				<table class="table table-hover table-striped">
+                  				  <tbody>
+                              <!--A
+                              <tr id="0">
+                                  <td><input type="checkbox"></td>
+                                  <td onclick="displayMail(this)" class="mailbox-name"><a style="color:#0033cc;">Anil Ustundag anilu@...</a></td>
+                                  <td onclick="displayMail(this)" class="mailbox-subject"><b>compose test mail...</b> - [Daft punk ...]</td>
+                                  <td onclick="displayMail(this)" class="mailbox-date">Time</td>
+                              </tr>
+                              <tr id="1">
+                                  <td><input type="checkbox"></td>
+                                  <td onclick="displayMail(this)" class="mailbox-name"><a style="color:#0033cc;">Anil Ustundag anilu@...</a></td>
+                                  <td onclick="displayMail(this)" class="mailbox-subject"><b>compose test mail...</b> - [Daft punk ...]</td>
+                                  <td onclick="displayMail(this)" class="mailbox-date">Time</td>
+                              </tr>-->
+                  				  </tbody>
+                  				</table>
+                  			  </div>
+                  			</div>
+                  			<hr>
+                  		</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane" id="trash">
+            <div class="container">
+                <div class="content-container clearfix">
+                    <div class="col-md-12">
+                      <div class="row">
+                        <h3 class="content-title">Trash</h3><hr>
+                        <input type="search" placeholder="Search Mail" class="form-control mail-search" id="search_deleted"/>
+                  			<div class="box-body no-padding">
+                  			  <br>
+                  			  <div class="table-responsive mailbox-messages">
+                  				<table class="table table-hover table-striped">
+                  				  <tbody>
+                              <!--A
+                              <tr id="0">
+                                  <td><input type="checkbox"></td>
+                                  <td onclick="displayMail(this)" class="mailbox-name"><a style="color:#0033cc;">Anil Ustundag anilu@...</a></td>
+                                  <td onclick="displayMail(this)" class="mailbox-subject"><b>compose test mail...</b> - [Daft punk ...]</td>
+                                  <td onclick="displayMail(this)" class="mailbox-date">Time</td>
+                              </tr>
+                              <tr id="1">
+                                  <td><input type="checkbox"></td>
+                                  <td onclick="displayMail(this)" class="mailbox-name"><a style="color:#0033cc;">Anil Ustundag anilu@...</a></td>
+                                  <td onclick="displayMail(this)" class="mailbox-subject"><b>compose test mail...</b> - [Daft punk ...]</td>
+                                  <td onclick="displayMail(this)" class="mailbox-date">Time</td>
+                              </tr>-->
+                  				  </tbody>
+                  				</table>
+                  			  </div>
+                  			</div>
                   			<hr>
                   		</div>
                     </div>
@@ -80,7 +162,7 @@
         <div class="tab-pane" id="compose">
             <div class="container">
                 <div class="content-container clearfix">
-                    <h3 class="content-title">Compose</h3>
+                    <h3 class="content-title">Compose</h3><hr>
                     <div class="col-md-12">
                         <div class="form-group">
                             <input type="text" class="form-control" id="to" placeholder="To" value="muhammed@gmail.com"/>
@@ -96,72 +178,56 @@
                         </div>
                         <textarea class="form-control" id="message" placeholder="message">Hi there! Let's create a mail to append .mbox file.</textarea>
                         <div class="btn-send">
-                            <button class="btn btn-success btn-lg" onclick="composeMail()"><span class="glyphicon glyphicon-send"></span> Send</button>
+                            <button class="btn btn-success btn-lg" href="#inbox" onclick="composeMail()"><span class="glyphicon glyphicon-send"></span> Send</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="tab-pane" id="sent-mail">
-            <div class="container">
-                <div class="content-container clearfix">
-                    <div class="col-md-12">
-                      <div class="row">
-							<h3 class="content-title">Sent</h3>
-							<input type="search" placeholder="Search Mail" class="form-control mail-search" id="search_sent"/>
-                  			<div class="box-body no-padding">
-                  			  <br>
-                  			  <div class="table-responsive mailbox-messages">
-                  				<table class="table table-hover table-striped">
-                  				  <tbody>
-									<!-- /
-                  					<tr>
-                  					  <td><input type="checkbox"></td>
-                  					  <td class="mailbox-name"><a href="">WM06</a></td>
-                  					  <td class="mailbox-subject"><b>WM06</b> - Trying to find a solution to this problem...</td>
-                  					  <td class="mailbox-date">5 mins ago</td>
-                  					</tr>
-									-->
-                  				  </tbody>
-                  				</table><!-- /.table -->
-                  			  </div><!-- /.mail-box-messages -->
-                  			</div><!-- /.box-body -->
-                  			<hr>
-                  		</div>
-                    </div>
+    </div>
+    <div class="mail_details" style="display:none;">
+        <div class="container">
+            <div class="content-container clearfix">
+                <h3 class="content-title">Mail Details</h3><hr>
+                <div>
+                  <label>Subject:</label>
+                  <span id="subject">subject</span>
                 </div>
-            </div>
-        </div>
-        <div class="tab-pane" id="trash">
-            <div class="container">
-                <div class="content-container clearfix">
-                    <div class="col-md-12">
-                      <div class="row">
-							<h3 class="content-title">Trash</h3>
-							<input type="search" placeholder="Search Mail" class="form-control mail-search" id="search_deleted"/>
-                  			<div class="box-body no-padding">
-                  			  <br>
-                  			  <div class="table-responsive mailbox-messages">
-                  				<table class="table table-hover table-striped">
-                  				  <tbody>
-									<!-- /
-                  					<tr>
-                  					  <td><input type="checkbox"></td>
-                  					  <td class="mailbox-name"><a href="">WM06</a></td>
-                  					  <td class="mailbox-subject"><b>WM06</b> - Trying to find a solution to this problem...</td>
-                  					  <td class="mailbox-date">5 mins ago</td>
-                  					</tr>
-									-->
-                  				  </tbody>
-                  				</table><!-- /.table -->
-                  			  </div><!-- /.mail-box-messages -->
-                  			</div><!-- /.box-body -->
-                  			<hr>
-                  		</div>
+                <div class="row" style="padding-top:20px;">
+                  <div class="col-xs-1">
+                    <img src="img/unknown.png">
+                  </div>
+                  <div class="col-xs-11" style="padding-top:15px;">
+                    <label id="from_name">from_name</label>
+                    <span id="from_address">from_address</span>
+                    <div>
+                        <span id="date">date</span>
                     </div>
+                  </div>
+                </div>
+                <div style="padding-top:10px;">
+                  <label>To: </label>
+                  <span id="to_address">to_address</span>
+                </div>
+                <div id="cc" style="display:none;">
+                  <label>Cc: </label>
+                  <span id="cc_address">cc_address</span>
+                </div>
+                <div id="bcc" style="display:none;">
+                  <label>Bcc: </label>
+                  <span id="bcc_address">bcc_address</span>
+                </div>
+                <div style="padding-top:20px;">
+                    <span id="text">text here</span>
+                </div>
+                <div style="padding-top:50px;">
+                    <hr>
+                    <button class="btn btn-default btn-lg" onclick="backToTabContent()"><span class="glyphicon glyphicon-arrow-left"></span> Back</button>
+                    <button class="btn btn-success btn-lg" onclick="replyMail()"><span class="glyphicon glyphicon-arrow-right"></span> Reply</button>
                 </div>
             </div>
         </div>
     </div>
+
 </body>
 </html>
