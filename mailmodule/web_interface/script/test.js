@@ -6,6 +6,7 @@
 var INBOX = [];
 var SENT  = [];
 var TRASH = [];
+var FILTERED = [];
 
 var CHECKBOX_COUNT_INBOX = 0;
 var CHECKBOX_COUNT_SENT  = 0;
@@ -13,19 +14,29 @@ var CHECKBOX_COUNT_TRASH = 0;
 
 var PAGE_CATEGORY = '';
 
+var SEARCHED = false;
+
 $(function() {
    $('.form-control').floatlabel({
       labelClass: 'float-label',
       labelEndTop: 5
    });
    REST_request_inbox();
+
    // Enable enter key for search bar
    $('.mail-search').on('keypress', function (e) {
       if(e.which === 13){
          //Disable textbox to prevent multiple submit
          $(this).attr("disabled", "disabled");
          if($(this).val().trim() != ''){
+            SEARCHED = true;
             REST_search_mail($(this).attr('id'), $(this).val().trim());
+         }
+         else {
+           SEARCHED = false;
+           REST_request_inbox();
+           REST_request_sent();
+           REST_request_deleted();
          }
          //Enable the textbox again if needed.
          $(this).removeAttr("disabled");
@@ -86,6 +97,7 @@ $(function() {
 });
 
 var REST_request_inbox = function(){
+   SEARCHED = false;
    PAGE_CATEGORY = "inbox";
    $('#inbox input:checkbox').each(function() {
       $(this).prop('checked', false);
@@ -112,11 +124,15 @@ var REST_request_inbox = function(){
 };
 
 var REST_request_sent = function(){
+   SEARCHED = false;
    PAGE_CATEGORY = "sent";
    $('#sent-mail input:checkbox').each(function() {
       $(this).prop('checked', false);
    });
    $('#btn_delete').hide();
+   //clear search field
+   $('.mail-search').val('');
+   $('.mail-search').blur();
    $.ajax({
       url: "http://127.0.0.1:3000/sent",
       type: 'get',
@@ -135,11 +151,15 @@ var REST_request_sent = function(){
 };
 
 var REST_request_deleted = function(){
+   SEARCHED = false;
    PAGE_CATEGORY = "trash";
    $('#trash input:checkbox').each(function() {
       $(this).prop('checked', false);
    });
    $('#btn_delete').hide();
+   //clear search field
+   $('.mail-search').val('');
+   $('.mail-search').blur();
    $.ajax({
       url: "http://127.0.0.1:3000/deleted",
       type: 'get',
@@ -184,6 +204,7 @@ var REST_search_mail = function(category, keyword){
          keywords: keyword
    },
    success: function (success) {
+      FILTERED = JSON.parse(success);
       switch (category) {
          case "search_inbox":
             load_mails(".tab-content #inbox tbody", success);
@@ -223,20 +244,19 @@ var REST_remove_mail = function(delete_JSON){
 
 var composeMail = function(){
    var to = $('#to').val();
-   // cc and bcc should be checked with respect to ',' comma character
-   var cc = $('#cc').val();
+   // Cc and Bcc should be checked with respect to ',' comma character
+   var cc  = $('#cc').val();
    var bcc = $('#bcc').val();
    var subject = $('#subject').val();
    var message = $('#message').val();
 
-   //date must consist exactly 24 character
    var mail_JSON = {
-      "firstLine": "From " + "Anil Ustundag" + (' '+new Date()).substr(0,24),
+      "firstLine": "From " + "Anil Ustundag" + (" "+new Date()).substr(0,24),
       "From": "anilu@fraunhofer.com",
       "To": to,
       "Cc": cc,
       "Bcc": bcc,
-      "Date": (' '+new Date()).substr(0,24),
+      "Date": (""+new Date()).substr(4,20)+" +0200", // Date must consist exactly 24 character
       "Subject": subject,
       "Message": message
    };
@@ -247,10 +267,19 @@ var load_mails = function(path, mail_list){
    $(path + ' tr').remove();
    var mails = JSON.parse(mail_list);
    var mail;
+   var date = "";
+   var time = "";
+   var text = "";
+   var subject = "";
    var mail_from = "";
    var sender = "";
    for(var i in mails) {
       mail = mails[i];
+      date = (mail["date"].split('T'))[1];
+      time = (parseInt((date.split(':'))[0])+2) +":"+ (date.split(':'))[1]
+      text = (mail["text"].length<50 ? mail["text"] : mail["text"].substr(0,50)+"...");
+      subject = (mail["subject"] ? mail["subject"] : "(No subject)");
+      subject = (subject.length<20 ? subject : subject.substr(0,20)+"...");
       mail_from = mail["from"][0];
       sender = (mail_from["name"] ? mail_from["name"] +" "+ mail_from["address"] : mail_from["address"]);
       $(path)
@@ -260,8 +289,8 @@ var load_mails = function(path, mail_list){
          .append($('<td onclick="displayMail(this)" class="mailbox-name">')
             .append($('<a style="color:#0033cc;">').html(sender.substr(0,20)+"...")))
          .append($('<td onclick="displayMail(this)" class="mailbox-subject">')
-            .html("<b>"+(mail["subject"]).substr(0,20)+'...</b>  -  [' + mail["text"].substr(0,70)+'...]'))
-         .append($('<td onclick="displayMail(this)" class="mailbox-date">').html("Time"))
+            .html("<b>"+subject+'</b>  -  [' + text +']'))
+         .append($('<td onclick="displayMail(this)" class="mailbox-date">').html(time))
       );
    }
    };
@@ -291,6 +320,7 @@ var replyMail = function(){
 }
 
 var deleteSelected = function(){
+   // TODO: After searching, delete function works wrong.
    var toBeRemoved = [];
    var checkbox_path = "";
    switch (PAGE_CATEGORY) {
@@ -336,6 +366,10 @@ var displayMail = function(element){
          break;
       default:
          console.log("[displayMail] Sorry, Invalid file type!");
+   }
+
+   if(SEARCHED){
+      mail = FILTERED[index];
    }
 
    $('.mail_details #subject').text(mail.headers.subject);
