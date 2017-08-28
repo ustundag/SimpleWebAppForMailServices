@@ -1,12 +1,5 @@
 1-Run this command under 'mailmodule' folder;
 	$ npm install (installs dependencies listed in package.json)
 
-2-Run "$ node app.js" command to start web server of express.js framework and see example rest responses on 
-	http://localhost:3000 and http://localhost:3000/hello
-
-3- In folder 'test_mail_read_write', In order to append a mail to simple2.mbox, Run this command:
-	$ ./write.js
-Then see appended mail with running this command:
-	$ ./read.js --input simple2.mbox
-
-4- 
+2-Run "$ node server.js" command to start web server of express.js framework and see example rest responses on 
+	http://localhost:3000
