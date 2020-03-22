@@ -11,8 +11,4 @@ Client Side: `HTML5`, `CSS3`, `Bootstrap`, `Jquery`, `Ajax`
 Server Side: `Node.js`, `Express.js`
 
 ### npm packages
-`body-parser`
-`cors`
-`prepend-file`
-`mailparser`
-`node-mbox`
+`body-parser`, `cors`, `prepend-file`, `mailparser`, `node-mbox`
