@@ -1,5 +1,5 @@
 # Simple Web Application For Mail Services
-A web interface which contains some functionalities of a fully maintained email service providers like Gmail, yahoo etc. Since mailing lists and mail archives are stored using the mbox format (and its variations), for more information,
+A web interface which contains some functionalities of fully maintained email service providers like Gmail, yahoo etc. Since mailing lists and mail archives are stored using the mbox format (and its variations), for more information,
 
 Please see;
 - [qmail mbox description](http://qmail.omnis.ch/man/man5/mbox.html)
